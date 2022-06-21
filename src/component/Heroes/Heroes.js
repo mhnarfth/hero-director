@@ -21,6 +21,8 @@ const Heroes = (props) => {
             <FontAwesomeIcon icon={faShoppingCart}/> 
             <span> Add to Cart</span>
             </button>
+
+            <button onClick={() => props.handleRemoveFromCart(id)}>Remove</button>
             <div className='icons'>
             <FontAwesomeIcon icon={faFacebookSquare} size="2x"/>
             <FontAwesomeIcon icon={faTwitterSquare} size="2x"/>
