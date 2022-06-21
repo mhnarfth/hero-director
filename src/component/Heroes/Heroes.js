@@ -6,18 +6,18 @@ import './Heroes.css';
 
 const Heroes = (props) => {
 
-    const {picture, name, age, gender, country, salary} = props.hero;
-    console.log(name);
+    const {id, picture, name, age, gender, country, salary} = props.hero;
+    console.log(props);
     return (
         <div className='hero-card'>
-            <img src={picture} alt="" />
+            <img className='img-thumbnail' src={picture} alt="" />
             <p>name: {props.hero.name}</p>
             <p>Role: Hero</p>
             <p>Age: {age}</p>
             <p>Gen  der: {gender}</p>
             <p>Country: {country}</p>
             <p>Salary: ${salary}</p>
-            <button className='add-to-cart btn btn-danger'>
+            <button onClick={() => props.handleAddToCart(id)} className='add-to-cart btn btn-danger'>
             <FontAwesomeIcon icon={faShoppingCart}/> 
             <span> Add to Cart</span>
             </button>

@@ -6,22 +6,28 @@ import Heroes from '../Heroes/Heroes';
 const Shop = () => {
 
     const [hero, setHero] = useState([]);
+    const [order, setOrder] = useState([]);
 
     useEffect(() => {
         fetch('./data.json')
         .then(res=> res.json())
         .then (data=>setHero(data))
     },[])
+
+    const handleAddToCart = (id) =>{
+        setOrder([...order, id]);
+        
+    }
     return (
         <div className='shop-container'>
             <div className='heros-container'>
                 {
-                    hero.map(h => <Heroes key= {h.id} hero={h}></Heroes>)
+                    hero.map(h => <Heroes handleAddToCart = {handleAddToCart} key= {h.id} hero={h}></Heroes>)
                 }
             </div>
 
             <div className='cart-container'>
-                <Cart></Cart>
+                <Cart order={order} hero={hero}></Cart>
             </div>
         </div>
     );
