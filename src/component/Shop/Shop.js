@@ -16,7 +16,7 @@ const Shop = () => {
         <div className='shop-container'>
             <div className='heros-container'>
                 {
-                    hero.map(h => <Heroes hero={h}></Heroes>)
+                    hero.map(h => <Heroes key= {h.id} hero={h}></Heroes>)
                 }
             </div>
 
